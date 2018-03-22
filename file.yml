@@ -1,0 +1,17 @@
+---
+ - add_host:
+   name: "{{ ip }}"
+   groups: just_created
+   foo: 42
+
+ - hosts: "{{ ip }}"
+   tasks:
+   - name: docker installation
+     command: curl -fsSL get.docker.com -o get-docker.sh
+     install:
+       - bash sh get-docker.sh
+   - name: installation od docker
+     command: sudo apt-get install docker.io -y
+   - name: Creating a container
+     command: docker pull centos:6.5
+     command: docker run -dti --name cnt1 centos:6.5 /bin/bash
