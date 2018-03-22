@@ -11,7 +11,7 @@
      install:
        - bash sh get-docker.sh
    - name: installation od docker
-     command: sudo apt-get install docker.io -y
+     command: apt-get install docker.io -y
    - name: Creating a container
      command: docker pull centos:6.5
      command: docker run -dti --name cnt1 centos:6.5 /bin/bash
